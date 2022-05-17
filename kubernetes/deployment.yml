@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supplier-service-app
+  labels:
+    app: supplier-service-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: supplier-service-app
+  template:
+    metadata:
+      labels:
+        app: supplier-service-app
+    spec:
+      containers:
+        - name: supplier-service-app
+          image: miyuruw/supplier:0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
